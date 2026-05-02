@@ -1,4 +1,5 @@
 # Edge AI Exercise Form Detection (Nicla Vision)
+Course Website:https://www.samy101.com/edge-ai-26/
 
 A real-time exercise form detection system running entirely on-device using the Arduino Nicla Vision.
 
