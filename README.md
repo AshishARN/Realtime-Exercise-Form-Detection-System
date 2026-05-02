@@ -1,6 +1,7 @@
 # Edge AI Exercise Form Detection (Nicla Vision)
 
 A real-time exercise form detection system running entirely on-device using the Arduino Nicla Vision.
+
 This project demonstrates Edge AI deployment using quantized deep learning models for squat pose detection and pushup form classification.
 
 ## Features
@@ -17,7 +18,8 @@ This project demonstrates Edge AI deployment using quantized deep learning model
 | Model  | Architecture                             | Input Size| Classes      |
 |--------|------------------------------------------|-----------|--------------|
 | Squat  | MobileNetV1 0.25 (Transfer Learning)     | 96×96     | Multiple     |
-| Pushup | MobileNetV1 0.25 (Transfer Learning)     | 96×96     | Good / Bad   |
+| Pushup | MobileNetV1  0.1 (Transfer Learning)     | 96×96     | Good / Bad   |
+
 Both models are trained using Edge Impulse
 Quantized to INT8 for low memory and faster inference
 Optimized for embedded deployment
@@ -37,86 +39,74 @@ This diverse dataset helps improve robustness across:
 3. body variations
 
 # System Pipeline
-Capture frame from camera
-Downsample (80×60 for streaming)
-Resize to 96×96 for inference
-Convert to model input format
-Run inference (Edge Impulse SDK)
-Display results on web dashboard
+* Capture frame from camera
+* Downsample (80×60 for streaming)
+* Resize to 96×96 for inference
+* Convert to model input format
+* Run inference (Edge Impulse SDK)
+* Display results on web dashboard
+
 
 # Web Dashboard
 
-The device hosts a lightweight web server:
-
-Live grayscale camera feed
-Real-time prediction label
-Confidence score bars
-Buttons to switch between models
-
-Access via:
-
-http://<device-ip>
+* The device hosts a lightweight web server:
+* Live grayscale camera feed
+* Real-time prediction label
+* Confidence score bars
+* Buttons to switch between models
+* Access via: http://<device-ip>  // can be modified in the .ino file
 
 # Hardware Requirements
-Arduino Nicla Vision
-WiFi connection (hotspot/router)
-Power bank
+* Arduino Nicla Vision
+* WiFi connection (hotspot/router)
+* Power bank
 
-#Software Requirements
-Arduino IDE
-Edge Impulse exported Arduino libraries
-Required libraries:
-WiFi.h
-Camera libraries (GC2145)
+# Software Requirements
+* Arduino IDE
+* Edge Impulse exported Arduino libraries
+
+# Required libraries:
+* WiFi.h
+* Camera libraries (GC2145)
 
 # Installation
-Clone the repository:
-git clone https://github.com/your-username/edge-ai-exercise-detector.git
-Open the .ino file in Arduino IDE
-Add your WiFi credentials in:
-arduino_secrets.h
-Install required Edge Impulse libraries
-Upload to Nicla Vision
+1. Clone the repository:
+2. git clone https://github.com/your-username/edge-ai-exercise-detector.git
+3. Open the .ino file in Arduino IDE
+4. Add your WiFi credentials in: arduino_secrets.h
+5. Install required Edge Impulse libraries
+6. Upload to Nicla Vision
 
 # Usage
-Power the device
-Connect to WiFi
-Open Serial Monitor to get device IP
-Open the IP in browser
-Perform exercises in front of the camera
-Switch between:
-Squat model
-Pushup model
+1. Power the device
+2. Connect to WiFi
+3. Open Serial Monitor to get device IP
+4. Open the IP in browser
+5. Perform exercises in front of the camera
+6. Switch between:
+* Squat model
+* Pushup model
 
 # Technical Highlights
-Dual-model deployment on embedded hardware
-Real-time inference + streaming pipeline
-Efficient memory usage with quantization
-Custom preprocessing pipeline (RGB565 → model input)
-Lightweight HTTP server implementation
+1. Dual-model deployment on embedded hardware
+2. Real-time inference + streaming pipeline
+3. Efficient memory usage with quantization
+4. Custom preprocessing pipeline (RGB565 → model input)
+5. Lightweight HTTP server implementation
 
-# Project Structure
-.
-├── arduino-final-sketch/
-│   └── sketch_may01b.ino.ino
-│   └── arduino_secrets.h
-├── models/
-│   ├── squat_model/
-│   └── pushup_model/
-└── README.md
 
 # Limitations
-Performance depends on lighting and camera positioning
-Limited field of view (single-person detection)
-Model accuracy depends on dataset diversity
+* Performance depends on lighting and camera positioning
+* Limited field of view (single-person detection)
+* Model accuracy depends on dataset diversity
 
 # Future Work
-Add more exercises (deadlift, lunges, planks, etc.)
-Improve pose estimation using keypoints
-Multi-person detection
-Mobile app integration
+* Add more exercises (deadlift, lunges, planks, etc.)
+* Improve pose estimation using keypoints
+* Multi-person detection
+* Mobile app integration
 
 # Acknowledgements
-Edge Impulse for deployment tools
-Open datasets from Kaggle and other sources
-Arduino ecosystem for embedded support
+* Edge Impulse for deployment tools
+* Open datasets from Kaggle and other sources
+* Arduino ecosystem for embedded support
