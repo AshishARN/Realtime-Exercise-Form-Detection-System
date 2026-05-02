@@ -28,7 +28,8 @@ Dataset
 The dataset is a combination of:
 
 1. Kaggle datasets
-2. YouTube video frame extraction
+2. Teng, C. (2025). Squat Dataset [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17558630
+2. YouTube video frame extraction (https://www.youtube.com/watch?v=txnwoJz-Rno, https://www.youtube.com/watch?v=daDK0huWvfc, )
 3. Google Images
 4. Manually recorded images and videos
 
